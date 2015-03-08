@@ -36,7 +36,7 @@ class Word_model extends CI_Model {
 	function insert_referral($meaningidx) {
 		$this->db->set('meaningidx', $meaningidx);
 		$this->db->set('session_id', $this->session->userdata('session_id'));
-		$this->db->set('datetime','now()',false);
+		$this->db->set('writedate','now()',false);
 		$this->db->insert('referral');
 		return;
 	}
