@@ -32,7 +32,7 @@ class Word extends CI_Controller {
 		if ($meaning_list->num_rows () > 0) {
 			$this->load->view ( 'meaning_list', array (
 					'meaning_list' => $meaning_list->result (),
-					'word' => $word->result () 
+					'word' => $word->row () 
 			) );
 		}
 		
