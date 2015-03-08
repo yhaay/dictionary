@@ -10,14 +10,13 @@
 	<?php endforeach; ?>
 </ul>
 
-<div id="alert_refer" class="alert alert-success">
+<div id="alert_refer" class="alert alert-success fade in">
 	<a href="#" class="close" data-dismiss="alert">&times;</a> 추천되었습니다.
 </div>
 
-<script type="text/javascript"
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
 <script type="text/javascript">
-	$('.alert').alert('close');
+	$('.alert').hide();
 
 		$('.referral').click(function() {
 			var button = $(this);
@@ -34,7 +33,7 @@
 				data: post_data,
 				success: function() {
 					button.html(referral+1);
-					createAutoClosingAlert("#alert_refer",2000);
+					createAutoClosingAlert('#alert_refer',1000);
 				}
 			});
 		});
