@@ -5,7 +5,7 @@
 	<li class="list-group-item">
 		<?= $list->meaning?>
 		<span class="badge"><?= $list->referral?></span>
+		<input type="hidden" value="<?=$list->meaningidx?>">
 	</li>
-	<?php endif; ?>
 	<?php endforeach; ?>
 </ul>
