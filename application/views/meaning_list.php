@@ -4,15 +4,15 @@
 	<?php foreach($meaning_list as $list):?>
 	<li class="list-group-item">
 		<?= $list->meaning?>
-		<span meaningidx="<?=$list->meaningidx?>"
-			class="badge refer"><?= $list->referral?></span>
+		<span meaningidx="<?=$list->meaningidx?>" class="badge"><?= $list->referral?></span>
 	</li>
 	<?php endforeach; ?>
 </ul>
 
 <script type="text/javascript">
 	$(function() {
-		$('.refer').click(function() {
+		$('.badge').click(function() {
+			alert('test');
 			var referral = parseInt($(this).html());
 			var meaningidx = $(this).attr('meaningidx');
 			var post_data = {
