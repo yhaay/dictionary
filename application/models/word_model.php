@@ -29,9 +29,8 @@ class Word_model extends CI_Model {
 	}
 	function update_referral($meaningidx) {
 		$this->db->where ( 'meaningidx', $meaningidx );
-		$this->db->update ( 'meaning', array (
-				'referral' => 'referral+1' 
-		) );
+		$this->db->set ( 'referral', 'referral+1', false );
+		$this->db->update ( 'meaning' );
 		return;
 	}
 }

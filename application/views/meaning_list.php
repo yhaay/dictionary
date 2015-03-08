@@ -24,7 +24,7 @@
 				type: "POST",
 				url: "/word/update_referral",
 				data: post_data,
-				success: function(message) {
+				success: function() {
 					$(this).html(referral+1);
 					alert('추천되었습니다.');
 				}
