@@ -1,10 +1,12 @@
 <ul class="list-group">
 	<?php foreach($word_list as $list):?>
-	<a href="#" class="list-group-item"><?= $list->word?></a>
-	<li class="list-group-item list-group-item-info">
+	<a href="/word/detail/<?=$word->wordidx?>" class="list-group-item list-group-item-info"><?= $list->word?></a>
+	<?php if (!is_null($list->meaning)):?>
+	<li class="list-group-item">
 		<?= $list->meaning?>
 		<span class="badge"><?= $list->referral?></span>
 	</li>
+	<?php endif; ?>
 	<input type="hidden" value="<?= $list->wordidx?>">
 	<?php endforeach; ?>
 </ul>
