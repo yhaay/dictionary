@@ -4,8 +4,8 @@
 	<?php foreach($meaning_list as $list):?>
 	<li class="list-group-item">
 		<?= $list->meaning?>
-		<button type="button" meaningidx="<?=$list->meaningidx?>"
-			class="badge refer" value="<?= $list->referral?>"></button>
+		<span meaningidx="<?=$list->meaningidx?>"
+			class="badge refer"><?= $list->referral?></span>
 	</li>
 	<?php endforeach; ?>
 </ul>
@@ -13,7 +13,7 @@
 <script type="text/javascript">
 	$(function() {
 		$('.refer').click(function() {
-			var referral = parseInt($(this).val());
+			var referral = parseInt($(this).html());
 			var meaningidx = $(this).attr('meaningidx');
 			var post_data = {
 					'meaningidx' : meaningidx,
@@ -25,7 +25,7 @@
 				url: "<?= base_url(); ?>word/update_referral",
 				data: post_data,
 				success: function(message) {
-					$(this).val(referral+1);
+					$(this).html(referral+1);
 					alert('추천되었습니다.');
 				}
 			});
