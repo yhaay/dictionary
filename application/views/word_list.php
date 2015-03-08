@@ -1,8 +1,8 @@
 <ul>
 	<?php foreach($word_list as $list):?>
-	<?= $list->word?>
-	<?= $list->meaning?>
-	<?= $list->referral?>
+	<li><?= $list->word?></li>
+	<li><?= $list->meaning?>
+	<?= $list->referral?></li>
 	<input type="hidden" value="<?= $list->wordidx?>">
 	<?php endforeach; ?>
 </ul>
