@@ -32,8 +32,8 @@
 				url: "/word/update_referral",
 				data: post_data,
 				success: function() {
+					$('#alert_refer').alert();
 					button.html(referral+1);
-					createAutoClosingAlert('#alert_refer',1000);
 				}
 			});
 		});
