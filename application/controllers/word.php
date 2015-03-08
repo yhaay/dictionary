@@ -42,8 +42,8 @@ class Word extends CI_Controller {
 	public function update_referral() {
 		$meaningidx = $this->input->post('meaningidx');
 		$this->load->model('word_model');
-		$this->word_model->insert_referral($meaningidx);
 		$this->word_model->update_referral($meaningidx);
+		$this->word_model->insert_referral($meaningidx);
 	}
 }
 
