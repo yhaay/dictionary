@@ -10,7 +10,7 @@
 	<?php endforeach; ?>
 </ul>
 
-<div id="alert_refer" class="alert alert-success fade in">
+<div id="alert_refer" class="alert alert-success">
 	<a href="#" class="close" data-dismiss="alert">&times;</a> 추천되었습니다.
 </div>
 
@@ -32,7 +32,6 @@
 				url: "/word/update_referral",
 				data: post_data,
 				success: function() {
-					$('#alert_refer').alert();
 					button.html(referral+1);
 				}
 			});
