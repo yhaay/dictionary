@@ -29,9 +29,9 @@ class Word extends CI_Controller {
 		$this->load->model ( 'word_model' );
 		$meaning_list = $this->word_model->get_meaning_by_wordidx ( $wordidx );
 		$word = $this->word_model->get_word_by_wordidx($wordidx);
-		if ($word_list->num_rows () > 0) {
+		if ($meaning_list->num_rows () > 0) {
 			$this->load->view ( 'meaning_list', array (
-					'meaning_list' => $word_list->result (),
+					'meaning_list' => $meaning_list->result (),
 					'word' => $word->result()
 			) );
 		}
