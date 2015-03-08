@@ -8,13 +8,18 @@
 	</li>
 	<?php endforeach; ?>
 </ul>
+
+<div class="alert alert-success">
+	추천되었습니다.
+</div>
+
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script type="text/javascript">
 
 		$('.referral').click(function() {
-			alert('test');
 			var referral = parseInt($(this).html());
 			var meaningidx = $(this).attr('meaningidx');
+			$(this).html(referral+1);
 			var post_data = {
 					'meaningidx' : meaningidx,
 					'<?= $this->security->get_csrf_token_name() ?>': '<?=$this->security->get_csrf_hash()?>'
@@ -25,8 +30,7 @@
 				url: "/word/update_referral",
 				data: post_data,
 				success: function() {
-					$(this).html(referral+1);
-					alert('추천되었습니다.');
+					$('.alert').alert();
 				}
 			});
 		});
