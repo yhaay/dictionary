@@ -14,5 +14,16 @@ class Word_model extends CI_Model {
 		$this->db->join ( '(select * from meaning order by referral desc) as meaning', 'meaning.wordidx=word.wordidx', 'left' );
 		return $this->db->get ();
 	}
+	function get_meaning_by_wordidx($wordidx) {
+		$this->db->select('meaningidx,meaning,referral');
+		$this->db->order_by('referral');
+		$this->db->where('wordidx',$wordidx);
+		return $this->db->get();
+	}
+	function get_word_by_wordidx($wordidx){
+		$this->db->select('word,wordidx');
+		$this->db->where('wordidx',$wordidx);
+		return $this->db->get();
+	}
 }
 
