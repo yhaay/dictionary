@@ -32,7 +32,7 @@
 				url: "/word/update_referral",
 				data: post_data,
 				success: function() {
-					button.html(referral+1);
+//					button.html(referral+1);
 				}
 			});
 		});
