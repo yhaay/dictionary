@@ -11,7 +11,7 @@ class Word extends CI_Controller {
 	public function choseong($choseong) {
 		$this->load->view ( 'head' );
 		$this->load->model ( 'word_model' );
-		$word_list = $this->word_model->get_byt_choseong ( $choseong );
+		$word_list = $this->word_model->get_by_choseong ( $choseong );
 		$this->load->view ( 'choseong_list', array (
 				'choseong' => $choseong 
 		) );
