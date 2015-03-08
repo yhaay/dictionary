@@ -20,7 +20,8 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('head');
-		$this->load->view('choseong_list','0');
+		$this->load->view('choseong_list',array (
+				'choseong' => '0' );
 		$this->load->view('footer');
 	}
 }
