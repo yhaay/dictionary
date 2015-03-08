@@ -1,5 +1,4 @@
 <?php
-
 if (! defined ( 'BASEPATH' ))
 	exit ( 'No direct script access allowed' );
 class Word extends CI_Controller {
@@ -11,13 +10,17 @@ class Word extends CI_Controller {
 	public function choseong($choseong) {
 		$this->load->view ( 'head' );
 		$this->load->model ( 'word_model' );
-		$word_list = $this->word_model->get_by_choseong ( $choseong );
 		$this->load->view ( 'choseong_list', array (
 				'choseong' => $choseong 
 		) );
-		$this->load->view ( 'word_list', array (
-				'word_list' => $word_list 
-		) );
+		
+		$word_list = $this->word_model->get_by_choseong ( $choseong );
+		if ($word_list->num_rows () > 0) {
+			$this->load->view ( 'word_list', array (
+					'word_list' => $word_list->result () 
+			) );
+		}
+		
 		$this->load->view ( 'footer' );
 	}
 }
