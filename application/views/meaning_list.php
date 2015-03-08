@@ -17,7 +17,7 @@
 <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script type="text/javascript">
-	$('.alert').hide();
+	$('.alert').alert('close');
 
 		$('.referral').click(function() {
 			var button = $(this);
@@ -34,7 +34,7 @@
 				data: post_data,
 				success: function() {
 					button.html(referral+1);
-					$('#alert_refer').show();
+					createAutoClosingAlert("#alert_refer",2000);
 				}
 			});
 		});
