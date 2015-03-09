@@ -67,7 +67,7 @@ class Word extends CI_Controller {
 	public function insert_meaning() {
 		$this->load->model('word_model');
 		$this->word_model->insert_meaning(array(
-				'meaning'=>$this->input->post('new-meaning'),
+				'meaning'=>$this->input->post('meaning'),
 				'wordidx'=>$this->input->post('wordidx')
 		));
 		echo 'success';

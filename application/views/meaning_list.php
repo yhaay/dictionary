@@ -35,6 +35,7 @@
 			url: "/word/insert_meaning",
 			data: post_data,
 			success: function(message) {
+				refresh();
 			},
 			error: function(xhr, status, error) {
 				alert("에러발생");
