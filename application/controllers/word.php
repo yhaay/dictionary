@@ -65,14 +65,14 @@ class Word extends CI_Controller {
 		$this->load->view ( 'footer' );
 	}
 	public function insert_meaning() {
-		$wordidx = $this->input->post('wordidx');
 		$this->load->model('word_model');
 		$this->word_model->insert_meaning(array(
 				'meaning'=>$this->input->post('meaning'),
 				'wordidx'=>$this->input->post('wordidx')
 		));
+		$url = '/word/detail/' + $this->input->post('wordidx');
 		$this->load->helper('url');
-		redirect('/word/detail/' + $wordidx);
+		redirect($url);
 	}
 }
 
