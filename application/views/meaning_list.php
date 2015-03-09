@@ -1,11 +1,11 @@
 <h3><?=$word->word?></h3>
-<input type="hidden" value="<?=$word->wordidx?>">
+<input type="hidden" id="wordidx" name="wordidx"
+	value="<?=$word->wordidx?>">
 <ul class="list-group">
 	<?php foreach($meaning_list as $list):?>
 	<li class="list-group-item">
 		<?= $list->meaning?>
-		<button type="button"
-			class="btn btn-default btn-sm referral"
+		<button type="button" class="btn btn-default btn-sm referral"
 			meaningidx="<?=$list->meaningidx?>">
 			<span class="glyphicon glyphicon-thumbs-up"></span> <span><?= $list->referral?></span>
 		</button>
@@ -13,13 +13,35 @@
 	<?php endforeach; ?>
 </ul>
 
-<div id="alert_refer" class="alert alert-success">
-	<a href="#" class="close" data-dismiss="alert">&times;</a> 추천되었습니다.
+<div class="input-group">
+	<textarea class="form-control" rows="3" id="new-meaning"
+		name="new-meaning"></textarea>
+	<button class="btn btn-default" type="button new">등록</button>
 </div>
 
-
 <script type="text/javascript">
-	$('.alert').hide();
+
+	$('.new').click(function() {
+		var meaning = $('#new-meaning').val();
+		var wordidx = $('#wordidx').val();
+		var post_data = {
+				'wordidx' : wordidx,
+				'meaning' : meaning,
+				'<?= $this->security->get_csrf_token_name() ?>': '<?=$this->security->get_csrf_hash()?>'
+		};
+		
+		$.ajax({
+			type: "POST",
+			url: "/word/insert_meaning",
+			data: post_data,
+			success: function(message) {
+			},
+			error: function(xhr, status, error) {
+				alert("에러발생");
+			}
+		});
+		
+	});
 
 		$('.referral').click(function() {
 			var count = $(this).children().last();

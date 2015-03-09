@@ -64,6 +64,14 @@ class Word extends CI_Controller {
 		
 		$this->load->view ( 'footer' );
 	}
+	public function insert_meaning() {
+		$this->load->model('word_model');
+		$this->word_model->insert_meaning(array(
+				'meaning'=>$this->input->post('new-meaning'),
+				'wordidx'=>$this->input->post('wordidx')
+		));
+		echo 'success';
+	}
 }
 
 /* End of file welcome.php */

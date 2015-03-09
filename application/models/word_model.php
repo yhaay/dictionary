@@ -62,5 +62,14 @@ class Word_model extends CI_Model {
 		$this->db->join ( '(select * from meaning order by referral desc) as meaning', 'meaning.wordidx=word.wordidx', 'left' );
 		return $this->db->get ();
 	}
+	
+	function insert_meaning($data) {
+		$this->db->set('wordidx', $data['wordidx']);
+		$this->db->set('meaning', $data['meaning']);
+		$this->db->set('writedate','NOW()',false);
+		$this->db->set('session_id', $this->session->userdata('session_id'));
+		$this->db->insert('meaning');
+		return;
+	}
 }
 
