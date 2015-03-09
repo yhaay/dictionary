@@ -1,18 +1,20 @@
 <h3><?=$word->word?></h3>
 <input type="hidden" value="<?=$word->wordidx?>">
+<ul class="list-group">
 	<?php foreach($meaning_list as $list):?>
-	<div class="row">
-		<div class="col-md-10">
-			<?= $list->meaning?>
+	<li class="list-group-item">
+		<div class="row">
+			<div class="col-md-10"><?= $list->meaning?></div>
+			<div class="col-md-2">
+				<button type="button" class="btn btn-default btn-sm referral"
+					meaningidx="<?=$list->meaningidx?>">
+					<span class="glyphicon glyphicon-thumbs-up"></span> <span><?= $list->referral?></span>
+				</button>
+			</div>
 		</div>
-		<div class="col-md-2">
-		<button type="button" class="btn btn-default btn-sm referral"
-			meaningidx="<?=$list->meaningidx?>">
-			<span class="glyphicon glyphicon-thumbs-up"></span> <span><?= $list->referral?></span>
-		</button>
-		</div>
-	</div>
+	</li>
 	<?php endforeach; ?>
+</ul>
 
 <div id="alert_refer" class="alert alert-success">
 	<a href="#" class="close" data-dismiss="alert">&times;</a> 추천되었습니다.
