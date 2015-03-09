@@ -15,3 +15,4 @@ function createAutoClosingAlert(selector, delay) {
 </script>
 </head>
 <body>
+<div class="container">

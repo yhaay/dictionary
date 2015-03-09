@@ -4,8 +4,9 @@
 	<?php foreach($meaning_list as $list):?>
 	<li class="list-group-item">
 		<?= $list->meaning?>
-		<button type="button" class="btn btn-default btn-sm referral" meaningidx="<?=$list->meaningidx?>">
-			<span class="glyphicon glyphicon-star"></span> <?= $list->referral?>
+		<button type="button" class="btn btn-default btn-sm referral"
+			meaningidx="<?=$list->meaningidx?>">
+			<span class="glyphicon glyphicon-thumbs-up text-right"></span> <?= $list->referral?>
 		</button>
 	</li>
 	<?php endforeach; ?>
@@ -33,8 +34,12 @@
 				url: "/word/update_referral",
 				data: post_data,
 				success: function(message) {
-					alert(message);
-//					button.html(referral+1);
+					if (message == "success") {
+						alert("추천되었습니다.");
+						button.html(referral+1);
+					}
+					else if (message == "fail")
+						alert("이미 추천하셨습니다.");
 				},
 				error: function(xhr, status, error) {
 					alert("에러발생");
