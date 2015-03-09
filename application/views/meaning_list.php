@@ -4,8 +4,9 @@
 	<?php foreach($meaning_list as $list):?>
 	<li class="list-group-item">
 		<?= $list->meaning?>
-		<a href=""><span meaningidx="<?=$list->meaningidx?>"
-			class="badge referral"><?= $list->referral?></span></a>
+		<button type="button" class="btn btn-default btn-sm referral" meaningidx="<?=$list->meaningidx?>">
+			<span class="glyphicon glyphicon-star"></span> <?= $list->referral?>
+		</button>
 	</li>
 	<?php endforeach; ?>
 </ul>
@@ -31,8 +32,12 @@
 				type: "POST",
 				url: "/word/update_referral",
 				data: post_data,
-				success: function() {
+				success: function(message) {
+					alert(message);
 //					button.html(referral+1);
+				},
+				error: function(xhr, status, error) {
+					alert("에러발생");
 				}
 			});
 		});

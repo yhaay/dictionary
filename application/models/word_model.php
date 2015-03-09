@@ -40,5 +40,15 @@ class Word_model extends CI_Model {
 		$this->db->insert('referral');
 		return;
 	}
+	
+	function check_session_id($table, $session_id) {
+		$this->db->where('session_id', $session_id);
+		$this->db->from($table);
+		$num = $this->db->count_all_results();
+		if ($num>0)
+			return false;
+		else 
+			return true;
+	}
 }
 

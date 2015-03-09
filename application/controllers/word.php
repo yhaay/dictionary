@@ -38,12 +38,16 @@ class Word extends CI_Controller {
 		
 		$this->load->view ( 'footer' );
 	}
-	
 	public function update_referral() {
-		$meaningidx = $this->input->post('meaningidx');
-		$this->load->model('word_model');
-		$this->word_model->update_referral($meaningidx);
-		$this->word_model->insert_referral($meaningidx);
+		$meaningidx = $this->input->post ( 'meaningidx' );
+		$this->load->model ( 'word_model' );
+		
+		if ($this->word_model->check_session_id ( 'referral', $this->session->userdata ( 'session_id' ) )) {
+			$this->word_model->update_referral ( $meaningidx );
+			$this->word_model->insert_referral ( $meaningidx );
+			echo 'success';
+		} else
+			echo 'fail';
 	}
 }
 
