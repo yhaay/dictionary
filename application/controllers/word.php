@@ -70,9 +70,8 @@ class Word extends CI_Controller {
 				'meaning'=>$this->input->post('meaning'),
 				'wordidx'=>$this->input->post('wordidx')
 		));
-		$url = '/word/detail/' + $this->input->post('wordidx');
 		$this->load->helper('url');
-		redirect($url);
+		redirect("/word/detail/" );
 	}
 }
 
