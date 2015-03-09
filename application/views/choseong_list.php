@@ -1,3 +1,4 @@
+<p></p>
 <div class="btn-group btn-group-justified">
   <a <?php if ($choseong == '1'): ?>class="btn btn-primary"<?php else: ?>class="btn btn-default"<?php endif; ?> href="/word/choseong/1">ㄱ</a>
   <a <?php if ($choseong == '2'): ?>class="btn btn-primary"<?php else: ?>class="btn btn-default"<?php endif; ?> href="/word/choseong/2">ㄴ</a>
@@ -14,3 +15,4 @@
   <a <?php if ($choseong == '13'): ?>class="btn btn-primary"<?php else: ?>class="btn btn-default"<?php endif; ?> href="/word/choseong/13">ㅍ</a>
   <a <?php if ($choseong == '14'): ?>class="btn btn-primary"<?php else: ?>class="btn btn-default"<?php endif; ?> href="/word/choseong/14">ㅎ</a>
 </div>
+<p></p>
