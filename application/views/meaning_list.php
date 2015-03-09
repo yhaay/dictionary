@@ -6,7 +6,7 @@
 		<?= $list->meaning?>
 		<button type="button" class="btn btn-default btn-sm referral"
 			meaningidx="<?=$list->meaningidx?>">
-			<span class="glyphicon glyphicon-thumbs-up text-right"></span> <?= $list->referral?>
+			<span class="glyphicon glyphicon-thumbs-up text-right"></span> <span id="span_count"><?= $list->referral?></span>
 		</button>
 	</li>
 	<?php endforeach; ?>
@@ -21,7 +21,7 @@
 	$('.alert').hide();
 
 		$('.referral').click(function() {
-			var button = $(this);
+			var count = $(this).children('#span_count');
 			var referral = parseInt($(this).html());
 			var meaningidx = $(this).attr('meaningidx');
 			var post_data = {
@@ -35,7 +35,7 @@
 				data: post_data,
 				success: function(message) {
 					if (message == "success") {
-						alert("추천되었습니다.");
+						alert("추천되었습니다." + referral);
 						button.html(referral+1);
 					}
 					else if (message == "fail")
