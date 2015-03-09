@@ -42,7 +42,7 @@ class Word extends CI_Controller {
 		$meaningidx = $this->input->post ( 'meaningidx' );
 		$this->load->model ( 'word_model' );
 		
-		if ($this->word_model->check_session_id ( 'referral', $this->session->userdata ( 'session_id' ) )) {
+		if ($this->word_model->check_session_id ( 'referral', 'meaningidx', $meaningidx, $this->session->userdata ( 'session_id' ) )) {
 			$this->word_model->update_referral ( $meaningidx );
 			$this->word_model->insert_referral ( $meaningidx );
 			echo 'success';

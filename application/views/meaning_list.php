@@ -4,9 +4,9 @@
 	<?php foreach($meaning_list as $list):?>
 	<li class="list-group-item">
 		<?= $list->meaning?>
-		<button type="button" class="btn btn-default btn-sm referral"
+		<button type="button" class="btn btn-default btn-sm referral pull-right"
 			meaningidx="<?=$list->meaningidx?>">
-			<span class="glyphicon glyphicon-thumbs-up pull-right"></span> <span><?= $list->referral?></span>
+			<span class="glyphicon glyphicon-thumbs-up"></span> <span><?= $list->referral?></span>
 		</button>
 	</li>
 	<?php endforeach; ?>
