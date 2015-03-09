@@ -29,12 +29,10 @@ class Word extends CI_Controller {
 		$this->load->model ( 'word_model' );
 		$meaning_list = $this->word_model->get_meaning_by_wordidx ( $wordidx );
 		$word = $this->word_model->get_word_by_wordidx ( $wordidx );
-		if ($meaning_list->num_rows () > 0) {
-			$this->load->view ( 'meaning_list', array (
-					'meaning_list' => $meaning_list->result (),
-					'word' => $word->row () 
-			) );
-		}
+		$this->load->view ( 'meaning_list', array (
+				'meaning_list' => $meaning_list->result (),
+				'word' => $word->row () 
+		) );
 		
 		$this->load->view ( 'footer' );
 	}
@@ -49,24 +47,22 @@ class Word extends CI_Controller {
 		} else
 			echo 'fail';
 	}
-	
 	public function search_word() {
-		$word = $this->input->post('word');
-		$this->load->model('word_model');
-		$word_list = $this->word_model->get_word($word);
+		$word = $this->input->post ( 'word' );
+		$this->load->model ( 'word_model' );
+		$word_list = $this->word_model->get_word ( $word );
 		
-		$this->load->view('head');
+		$this->load->view ( 'head' );
 		
 		if ($word_list->num_rows () > 0) {
 			$this->load->view ( 'word_list', array (
 					'word_list' => $word_list->result () 
 			) );
-		}
-		else {
+		} else {
 			echo '검색 결과가 없습니다.';
 		}
-
-		$this->load->view('footer');
+		
+		$this->load->view ( 'footer' );
 	}
 }
 
