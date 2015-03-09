@@ -14,9 +14,10 @@
 </ul>
 
 <div class="input-group">
-	<textarea class="form-control" rows="3" id="new-meaning"
-		name="new-meaning"></textarea>
-	<button class="btn btn-default new-meaning" type="button">등록</button>
+	<input type="text" class="form-control" id="new-meaning"
+		name="new-meaning"> <span class="input-group-btn">
+		<button class="btn btn-default new-meaning" type="submit">등록</button>
+	</span>
 </div>
 
 <script type="text/javascript">
@@ -35,7 +36,7 @@
 			url: "/word/insert_meaning",
 			data: post_data,
 			success: function(message) {
-				refresh();
+				location.reload();
 			},
 			error: function(xhr, status, error) {
 				alert("에러발생");
