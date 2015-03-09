@@ -3,14 +3,12 @@
 <ul class="list-group">
 	<?php foreach($meaning_list as $list):?>
 	<li class="list-group-item">
-			<?= $list->meaning?>
-		<div class="pull-right">
+		<?= $list->meaning?>
 		<button type="button"
 			class="btn btn-default btn-sm referral"
 			meaningidx="<?=$list->meaningidx?>">
 			<span class="glyphicon glyphicon-thumbs-up"></span> <span><?= $list->referral?></span>
 		</button>
-		</div>
 	</li>
 	<?php endforeach; ?>
 </ul>

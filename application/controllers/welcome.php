@@ -21,6 +21,7 @@ class Welcome extends CI_Controller {
 	 */
 	public function index() {
 		$this->load->view ( 'head' );
+		$this->load->view('word_search');
 		$this->load->view ( 'choseong_list', array (
 				'choseong' => '0' 
 		) );

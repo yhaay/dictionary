@@ -49,6 +49,25 @@ class Word extends CI_Controller {
 		} else
 			echo 'fail';
 	}
+	
+	public function search_word() {
+		$word = $this->input->post('word');
+		$this->load->model('word_model');
+		$word_list = $this->word_model->get_word($word);
+		
+		$this->load->view('head');
+		
+		if ($word_list->num_rows () > 0) {
+			$this->load->view ( 'word_list', array (
+					'word_list' => $word_list->result () 
+			) );
+		}
+		else {
+			echo '검색 결과가 없습니다.';
+		}
+
+		$this->load->view('footer');
+	}
 }
 
 /* End of file welcome.php */
