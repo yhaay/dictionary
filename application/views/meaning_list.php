@@ -1,6 +1,4 @@
 <h3><?=$word->word?></h3>
-<input type="hidden" id="wordidx" name="wordidx"
-	value="<?=$word->wordidx?>">
 <ul class="list-group">
 	<?php foreach($meaning_list as $list):?>
 	<li class="list-group-item">
@@ -13,37 +11,17 @@
 	<?php endforeach; ?>
 </ul>
 
-<div class="input-group">
-	<input type="text" class="form-control" id="new-meaning"
-		name="new-meaning"> <span class="input-group-btn">
-		<button class="btn btn-default new-meaning" type="submit">등록</button>
-	</span>
-</div>
+<form action="/word/insert_meaning" method="POST">
+	<div class="input-group">
+		<input type="hidden" id="wordidx" name="wordidx"
+			value="<?=$word->wordidx?>"> <input type="text" class="form-control"
+			id="meaning" name="meaning"> <span class="input-group-btn">
+			<button class="btn btn-default" type="submit">등록</button>
+		</span>
+	</div>
+</form>
 
 <script type="text/javascript">
-
-	$('.new-meaning').click(function() {
-		var meaning = $('#new-meaning').val();
-		var wordidx = $('#wordidx').val();
-		var post_data = {
-				'wordidx' : wordidx,
-				'meaning' : meaning,
-				'<?= $this->security->get_csrf_token_name() ?>': '<?=$this->security->get_csrf_hash()?>'
-		};
-		
-		$.ajax({
-			type: "POST",
-			url: "/word/insert_meaning",
-			data: post_data,
-			success: function(message) {
-				location.reload();
-			},
-			error: function(xhr, status, error) {
-				alert("에러발생");
-			}
-		});
-		
-	});
 
 		$('.referral').click(function() {
 			var count = $(this).children().last();
