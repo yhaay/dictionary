@@ -16,12 +16,12 @@
 <div class="input-group">
 	<textarea class="form-control" rows="3" id="new-meaning"
 		name="new-meaning"></textarea>
-	<button class="btn btn-default" type="button new">등록</button>
+	<button class="btn btn-default new-meaning" type="button">등록</button>
 </div>
 
 <script type="text/javascript">
 
-	$('.new').click(function() {
+	$('.new-meaning').click(function() {
 		var meaning = $('#new-meaning').val();
 		var wordidx = $('#wordidx').val();
 		var post_data = {
