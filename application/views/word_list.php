@@ -1,14 +1,17 @@
-<ul class="list-group">
-	<?php foreach($word_list as $list):?>
-	<a href="/word/detail/<?=$list->wordidx?>" class="list-group-item list-group-item-info"><?= $list->word?></a>
-	<li class="list-group-item">
+<?php foreach($word_list as $list):?>
+<div class="panel panel-info">
+	<h3 class="panel-title">
+		<a href="/word/detail/<?=$list->wordidx?>"
+			class="list-group-item list-group-item-info"><?= $list->word?></a>
+	</h3>
+	<div class="panel-body">
 	<?php if (!is_null($list->meaning)):?>
 		<?= $list->meaning?>
 		<span class="badge"><?= $list->referral?></span>
 	<?php else: ?>
-		nbsp;
+		등록된 뜻이 없습니다.
 	<?php endif; ?>
-	</li>
+	</div>
 	<input type="hidden" value="<?= $list->wordidx?>">
-	<?php endforeach; ?>
-</ul>
+</div>
+<?php endforeach; ?>
