@@ -4,10 +4,12 @@
 	<?php foreach($meaning_list as $list):?>
 	<li class="list-group-item">
 		<?= $list->meaning?>
-		<button type="button" class="btn btn-default btn-sm referral pull-right"
+		<span class="badge">
+		<button type="button" class="btn btn-default btn-sm referral"
 			meaningidx="<?=$list->meaningidx?>">
 			<span class="glyphicon glyphicon-thumbs-up"></span> <span><?= $list->referral?></span>
 		</button>
+		</span>
 	</li>
 	<?php endforeach; ?>
 </ul>
@@ -35,7 +37,7 @@
 				data: post_data,
 				success: function(message) {
 					if (message == "success") {
-						button.html(referral+1);
+						count.html(referral+1);
 						alert("추천되었습니다.");
 					}
 					else if (message == "fail")
